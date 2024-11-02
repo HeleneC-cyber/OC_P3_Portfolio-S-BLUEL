@@ -1,0 +1,27 @@
+.active {
+    font-weight: 600;
+}
+
+.active:hover {
+color: black;
+cursor: default;
+}
+
+.login {
+    max-width: 379px;
+    margin: 0 auto;
+    margin-top: 150px;
+    margin-bottom: 355px;
+}
+
+.login h2 {
+    text-align: center;
+}
+
+.login p {
+    text-align: center;
+}
+
+.login p a{
+    color: black;
+}
