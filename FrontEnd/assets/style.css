@@ -121,16 +121,65 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+/* ___Ajout de la marge correspondant à la maquette____ */
+#portfolio {
+	margin-top: 139px;
+}
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
+/* ___Ajout du style de la div contenant les boutons filtrant les catégories et des boutons eux-mêmes____ */
+.btn-container{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	gap: 10px;
+}
+
+.btn-radio-container{
+	position:relative;
+}
+
+.btn-container input {
+	appearance: none;
+	position: absolute;
+	inset: 0;
+}
+
+.btn-filter{
+	cursor: pointer;
+	border: solid 1px #1D6154 ;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 37px;
+	width: fit-content;
+	min-width: 80px;
+	max-width: 178px;
+	padding: 0 10px;
+	color: #1D6154;
+	font-family: 'Syne';
+	font-size: 16px;
+	font-weight: 700;
+}
+
+input:checked + .btn-filter {
+	background-color: #1D6154;
+	color: white;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
+	/* ____Ajout de la marge correspondant à la maquette */
+	margin-top: 50px;
 }
 
 .gallery img {
