@@ -1,4 +1,4 @@
-.active {
+.active-menu {
     font-weight: 600;
 }
 
@@ -18,10 +18,50 @@ cursor: default;
     text-align: center;
 }
 
+.login .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
 .login p {
     text-align: center;
 }
 
 .login p a{
     color: black;
+}
+
+.error {
+    text-align: right;
+    padding-top: 10px;
+    color: #B1663C;
+}
+
+input[type="submit"]+.error {
+    margin-bottom: 50px;
+    font-size: 16px;
+    font-weight: 600;
+
+
+}
+
+input.validate {
+    font-weight: 600;
+    color: #1D6154;
+}
+
+ input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* Revert text color */
+  -webkit-text-fill-color: #1D6154 !important;
+  color: #1D6154 !important;
+  caret-color: white !important;
+    /* Revert background color */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.hidden {
+    display: none;
 }

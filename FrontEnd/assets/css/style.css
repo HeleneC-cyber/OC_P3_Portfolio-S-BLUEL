@@ -1,4 +1,4 @@
-/* ____Importation des autres fichiers css */
+/* ____Importation des autres fichiers css____ */
 @import url(./login.css);
 
 
@@ -106,7 +106,7 @@ nav ul {
 
 }
 
-/* ____Modification du menu pour integrer des liens */
+/* ____Modification du menu pour integrer des liens____ */
 nav li {
 	padding: 0 10px;
 }
@@ -153,7 +153,7 @@ a:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
-/* ___Ajout du style de la div contenant les boutons filtrant les catégories et des boutons eux-mêmes____ */
+/* ____Ajout du style de la div contenant les boutons filtrant les catégories et des boutons eux-mêmes____ */
 .btn-container{
 	width: 100%;
 	display: flex;
@@ -234,6 +234,9 @@ input:not(input[type="radio"]) {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+input:not(input[type="radio"], input[type="submit"]){
+	padding-left: 20px;
+}
 label:not(.btn-radio-container label) {
 	margin: 2em 0 1em 0;
 	text-align: left;
@@ -254,7 +257,7 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
-/* ___Ajustement de la taille du footer pour correspondre à la maquette____ */
+/* ____Ajustement de la taille du footer pour correspondre à la maquette____ */
 footer {
 	background-color: white;
 	width: 100%;

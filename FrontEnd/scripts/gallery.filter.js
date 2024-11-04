@@ -44,18 +44,18 @@ export function filterCategoryFigure(works) {
     // Boucle compteur parcourant le tableau input/bouton-radio (pour récupérer les catégories)
     for (let i = 0; i < btnCategoryFilter.length; i++) {
 
-        // Ecoute le changement d'état (checked), au changement d'état :
+        // Ecoute le changement d'état (checked) des différents boutons de catégorie, au changement d'état :
         btnCategoryFilter[i].addEventListener("change", () => {
             const categoryFilter = btnCategoryFilter[i].value
             // On filtre le tableau des figures (works) en retournant uniquement les figures ayant la même catégorie que celles de l'input/buton-radio
             let categoryFiltered = works.filter((figure) => {
                 return figure.category.name === categoryFilter
             })
-            // Si l'input/bouton-radio est le bouton tous, alors on retourne toutes les figures dans le tableau works
+            // Si la valeur du bouton est "TOUS", alors on retourne toutes les figures dans le tableau works
             if (categoryFilter === "TOUS") {
                 categoryFiltered = works
             }
-            // On affiche les catégories filtrées (ou non pour le bouton TOUS) dans le DOM donc on réutilise la fonction generateGally mais sur le tableau "works" filtré (=categoryFiltred).
+            // Affiche les catégories filtrées (ou non pour le bouton TOUS) dans le DOM donc on réutilise la fonction generateGally mais sur le tableau "works" filtré (=categoryFiltred).
             generateGallery(categoryFiltered)
         })
     }
