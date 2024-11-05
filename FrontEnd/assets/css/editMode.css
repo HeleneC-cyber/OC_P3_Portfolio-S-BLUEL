@@ -1,0 +1,38 @@
+.edit-bar {
+    background-color: black;
+    height: 59px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-bar p {
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.title-tool-wrapper {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto 92px;
+}
+
+.title-tool-wrapper .edit-tool {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    left: calc(100% + 30px);
+    top: 30%;
+}
+
+.overlay-body {
+    position: absolute;
+    top : 59px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 59px);
+    background-color: black;
+    opacity: 0.3;
+    z-index: 100;
+}

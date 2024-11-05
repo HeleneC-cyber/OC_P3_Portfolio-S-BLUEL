@@ -1,5 +1,6 @@
 /* ____Importation des autres fichiers css____ */
 @import url(./login.css);
+@import url(./editMode.css);
 
 
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -34,6 +35,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+
 }
 ol, ul {
 	list-style: none;
@@ -58,6 +60,7 @@ body {
 	font-size: 14px;
 	/* ____Ajout de la fond coloré correspondant à la maquette____ */
 	background-color: #FFFEF8 ;
+	position: relative;
 }
 /* ____Changement et application des marges sur un container (ne prend pas en compte le footer)____ */
 .container {
@@ -120,6 +123,7 @@ nav li a{
 a:hover {
 	color: #B1663C;
 }
+/* ____Fin de modification menu____ */
 
 #introduction {
 	display: flex;
@@ -191,10 +195,16 @@ a:hover {
 	font-weight: 700;
 }
 
+input:hover + .btn-filter {
+	background-color: #1D6154;
+	color: white;
+}
+
 input:checked + .btn-filter {
 	background-color: #1D6154;
 	color: white;
 }
+/* ____Fin d'ajout sur les btn filtres____ */
 
 .gallery {
 	width: 100%;
@@ -257,7 +267,7 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
-/* ____Ajustement de la taille du footer pour correspondre à la maquette____ */
+/* ____Ajustement de la taille et de la couleur du footer pour correspondre à la maquette____ */
 footer {
 	background-color: white;
 	width: 100%;
@@ -272,3 +282,6 @@ footer nav ul {
 	height: 60px;
 }
 
+footer li {
+	cursor: pointer;
+}

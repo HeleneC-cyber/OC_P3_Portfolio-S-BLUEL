@@ -1,10 +1,12 @@
 .active-menu {
+    font-size: 1.2em;
     font-weight: 600;
+    cursor: default;
 }
 
-.active:hover {
+.active-menu:hover {
 color: black;
-cursor: default;
+
 }
 
 .login {
@@ -29,6 +31,10 @@ cursor: default;
 
 .login p a{
     color: black;
+}
+
+input[type="submit"] {
+    cursor: pointer;
 }
 
 .error {
@@ -62,6 +68,6 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-.hidden {
+/* .hidden {
     display: none;
-}
+} */

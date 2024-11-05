@@ -1,10 +1,17 @@
 import { works, generateGallery } from "./gallery.js"
 import { filterCategoryFigure, generateCategoryBtn } from "./gallery.filter.js"
-import { generateEditMode } from "./editMode.js"
+import { IsAuthenticated } from "./connected.js"
+import { generateModal, initaddEvenListenerModal } from "./modale.js"
+// import { generateEditMode } from "./editMode.js"
 
 
+// Fonctions appelées au chargement de la page d'accueil index.html
 generateGallery(works)
 generateCategoryBtn(works)
 filterCategoryFigure(works)
 
-generateEditMode()
+// devra surement être appelée ailleurs (ici pour test)
+generateModal()
+
+// Une fois et tant que connecté, nouvelles fonctionnalitées et changement dynamique du DOM
+IsAuthenticated()

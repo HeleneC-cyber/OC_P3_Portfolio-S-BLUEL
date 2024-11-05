@@ -6,7 +6,6 @@ export function generateCategoryBtn(works) {
     const listCategory = works.map(work => work.category.name)
     const setListCategory = new Set(listCategory)
     const arrayListCategory = Array.from(setListCategory)
-    console.log(setListCategory)
 
     // Création et placement de la div contenant les boutons
     const btnAll = document.createElement('div')
@@ -17,8 +16,8 @@ export function generateCategoryBtn(works) {
 
     // Création du bouton-radio "TOUS" (gallerie non filtrée)
     const btnAllCategory = `
-    <div class="btn-radio-container">
-        <input type="radio" id="all"  name="btnCategory" value="TOUS" />
+    <div class="btn-radio-container" >
+        <input type="radio" id="all"  name="btnCategory" value="TOUS" checked />
         <label for="all" class="btn-filter">TOUS</label>
     </div>
     `

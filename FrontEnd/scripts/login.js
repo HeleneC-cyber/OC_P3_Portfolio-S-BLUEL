@@ -6,7 +6,7 @@
 // @param regex = Expression régulière choisie
 
 // Affiche et crée dynamiquement le message d'erreur de l'input dans une div
-export function displayErrorInput(input) {
+function displayErrorInput(input) {
     // Récupération de la div parent
     let parentDiv = input.parentElement
     // Récupération de la div ayant la classe .error, dans une variable
@@ -25,7 +25,7 @@ export function displayErrorInput(input) {
 }
 
 // Enlève le message d'erreur de l'input en supprimant la divError
-export function removeDisplayErrorInput(input) {
+function removeDisplayErrorInput(input) {
     let parentDiv = input.parentElement
     let divError = parentDiv.querySelector(".error")
     if (divError) {
@@ -100,7 +100,7 @@ export function manageAuthentication(inputId, inputPassword) {
 
 
 // Lance l'authentification : envoie la requête POST avec les valeurs des input
-export async function authentication(inputId, inputPassword, dataCatching) {
+async function authentication(inputId, inputPassword, dataCatching) {
     // Récupère les valeurs des inputs dans des variables
     let email = inputId.value
     let password = inputPassword.value
@@ -140,7 +140,7 @@ export async function authentication(inputId, inputPassword, dataCatching) {
 
 
 // Affiche le message d'erreur pour la requête POST et le positionne dans le DOM
-export function displayResponseError() {
+function displayResponseError() {
     const form = document.querySelector("form")
     const errorMessage = document.createElement("p")
     errorMessage.classList.add("error")
