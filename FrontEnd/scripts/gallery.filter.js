@@ -1,4 +1,4 @@
-import { generateGallery, works } from "./gallery.js"
+import { generateGallery } from "./gallery.js"
 
 // Génère les boutons en fonction du nombre de catégorie
 export function generateCategoryBtn(works) {
