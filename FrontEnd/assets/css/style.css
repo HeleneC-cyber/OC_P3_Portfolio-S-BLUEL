@@ -1,6 +1,7 @@
 /* ____Importation des autres fichiers css____ */
 @import url(./login.css);
 @import url(./editMode.css);
+@import url(./modal.css);
 
 
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -238,16 +239,18 @@ form {
 	flex-direction: column;
 }
 
-input:not(input[type="radio"]) {
+input:not(input[type="radio"], input[type="file"]) {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: "Work Sans";
+	font-size: 14px;
 }
-input:not(input[type="radio"], input[type="submit"]){
+input:not(input[type="radio"], input[type="submit"], input[type="file"]){
 	padding-left: 20px;
 }
-label:not(.btn-radio-container label) {
+label:not(.btn-radio-container label, .modal-form label) {
 	margin: 2em 0 1em 0;
 	text-align: left;
 }

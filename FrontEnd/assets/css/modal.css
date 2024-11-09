@@ -1,0 +1,234 @@
+/* ____Style de la modale____ */
+
+/* .hidden {
+    display: none  !important;
+} */
+
+.active {
+    display: block !important;
+}
+
+#overlay-body {
+    position: absolute;
+    top: 59px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 59px);
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.modal-background {
+    position: absolute;
+    top: 601px;
+    left: calc(50% - 315px);
+    height: 688px;
+    width: 630px;
+    background-color: white;
+    border-radius: 15px;
+
+}
+
+.modal-background>svg {
+    position: absolute;
+    top: 26px;
+    left: 576px;
+    cursor: pointer;
+}
+
+
+.modal-container {
+    position: relative;
+    margin: 0 105px 0;
+    padding: 60px 0 45px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.arrow {
+    position: absolute;
+    top: 26px;
+    /* calcul : 100% + 105px de marge (=bord de la modale) - 30px (distance entre le bord de la modale et la flèche) - 21px (largeur de la flèche */
+    right: calc(100% + 105px - 30px - 21px);
+    cursor: pointer;
+}
+
+.modal-container h3 {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.modal-container .modal-gallery-wrap {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 9px;
+    grid-row-gap: 29px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 390px;
+}
+
+.modal-gallery-wrap .modal-img-gallery {
+    position: relative;
+}
+
+.modal-gallery-wrap .modal-img-gallery svg {
+    position: absolute;
+    top: 6px;
+    left: calc(100% - 17px - 6px);
+}
+
+.modal-gallery-wrap .modal-img-gallery img {
+    height: 102px;
+}
+
+.modal-container .modal-line {
+    position: absolute;
+    bottom: 119px;
+    height: 1px;
+    width: 100%;
+    background-color: #B3B3B3;
+}
+
+.btn-modal {
+    position: absolute;
+    bottom: 45px;
+    left: calc(50% - 119px);
+    cursor: pointer;
+    width: 237px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Syne';
+    border-radius: 25px;
+}
+
+.background-validate {
+    background-color: #1D6154;
+    color: white;
+}
+
+.background-unvalid {
+border: none;
+background-color: #A7A7A7;
+color: white;
+}
+
+
+/* ____style spéficique Second view */
+
+.modal-form {
+    margin-top: 0px;
+}
+.input-file-background {
+    background-color: #E8F1F6;
+    height: 169px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.input-file-wrap {
+    position: relative;
+    margin-bottom: 19px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.input-file-wrap svg {
+    margin: 13px 0 6px;
+}
+
+.input-file-wrap .label-btn-photo {
+    background-color: #CBD6DC;
+    font-size: 14px;
+    font-weight: 500px;
+    width: 173px;
+    height: 36px;
+    color: #306685;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+
+}
+
+#input-image {
+    width: 173px;
+    height: 36px;
+    position: absolute;
+	opacity: 0;
+    bottom: 20px;
+    left: 0;
+    cursor: pointer;
+
+}
+/* ___permet d'afficher également le curseur pointeur sur le bouton file */
+.input-file-background input::-webkit-file-upload-button {
+    cursor: pointer; 
+}
+
+.input-file-wrap p {
+    text-align: center;
+    margin-top: 7px;
+} 
+
+.modal-form .form-group {
+display: flex;
+flex-direction: column;
+position: relative;
+margin-bottom: 21px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.form-group svg {
+    position: absolute;
+    bottom: calc(25px - 6px);
+    right: 20px;
+    }
+
+.form-group select {
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    border-radius: none;
+    border: none;
+    outline: 0px transparent;
+    appearance: none;
+    padding-left: 16px;
+    font-family: "Work Sans";
+    font-size: 14px;
+    z-index: 2;
+    background-color: transparent;
+}
+
+/* ____Pour la preview du form second view____ */
+.preview-container {
+    height : 169px;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    overflow-y: hidden;
+    display: none;
+}
+
+
+
+#preview-img {
+    max-height: 193px;
+    transform: translateY(-12px);
+}
