@@ -1,7 +1,5 @@
-import { createTag, getTag } from "../../utils/helpers.js"
-
-
-
+import { createTag } from "../../utils/helpers.js"
+import { validateImgType } from "./validateImgType.js"
 
 
 // Faire une fonction pour afficher l'image
@@ -11,39 +9,23 @@ import { createTag, getTag } from "../../utils/helpers.js"
 // extension
 
 
-// sur stackoverFLow : 
-{/* <html>
-<body>
-<input name="image" type="file" id="fileName" accept=".jpg,.jpeg,.png" onchange="validateFileType()"/>
-<script type="text/javascript">
-    function validateFileType(){
-        var fileName = document.getElementById("fileName").value;
-        var idxDot = fileName.lastIndexOf(".") + 1;
-        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
-        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
-            //TO DO
-        }else{
-            alert("Only jpg/jpeg and png files are allowed!");
-        }   
-    }
-</script>
-</body>
-</html> */}
-
-export const previewImgForm = (inputFileBackground, inputFileWrap, inputFile) => {
+// Affiche le fichier image s'il existe et s'il est valide, à l'écoute de l'inputFile
+export const displayValidImg = (inputFileBackground, inputFileWrap, inputFile, descriptionFile) => {
 
     // Crée un élément <img> pour afficher la prévisualisation et une div contenant l'élément
     const previewContainer = createTag("div", "preview-container")
     inputFileBackground.appendChild(previewContainer)
     const previewElement = createTag("img", null, "preview-img", { alt: "Preview du fichier image" })
     previewContainer.appendChild(previewElement)
+    // let previewCatching = ``
 
     // Écoute les changements de fichier sur l'input
     inputFile.addEventListener("change", () => {
 
-        // Vérifie si un fichier existe dans la liste des fichiers de l'inputFile
-        if (inputFile.files[0]) {
+        // Vérifie si un fichier existe dans la liste des fichiers de l'inputFile et qu'il est conforme aux attentes ()
+        if (inputFile.files[0] && validateImgType(inputFile.files[0])) {
 
+            console.log("bon format !")
             // Créer et récupère un nouvel objet FileReader
             const reader = new FileReader()
             // onload = "à chaque fois qu'une opération de lecture est menée à bien"
@@ -61,9 +43,16 @@ export const previewImgForm = (inputFileBackground, inputFileWrap, inputFile) =>
             // Supprime inputFileWrap (contenant svg, label, input, et p)
             inputFileWrap.remove()
 
+
+        }else{
+            console.log("mauvais format...")
+            // Ajoute une classe à la description (<p>) dans les cas où le fichier n'est pas valide 
+            descriptionFile.classList.add("flash-error")
         }
     })
 
+    return previewContainer
+    
 }
 
 

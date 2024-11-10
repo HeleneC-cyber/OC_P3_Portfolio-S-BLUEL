@@ -1,10 +1,13 @@
 import { getTag, createTag } from "../utils/helpers.js"
-// import { previewImgForm } from "./utilsModal/previewImgForm.js"
-import { removeItemFirstView } from "./utilsModal/removeItemFirstView.js"
-import { setupModalClose } from "./utilsModal/setupModaleClose.js"
 import { generateFirstView } from "./views/generateFirstView.js"
+import { setupEventListenersModal } from "./utilsModal/setupEventListenersModal.js"
+import { generateSecondView } from "./views/generateSecondView.js"
+// import { switchFirstSecondView } from "./views/switchFirstSecondView.js"
+// import { manageSecondView } from "./views/switchFirstSecondView.js"
+// import { previewImgForm } from "./utilsModal/previewImgForm.js"
+// import { removeItemFirstView } from "./utilsModal/removeItemFirstView.js"
+// import { setupModalClose } from "./utilsModal/setupModaleClose.js"
 // import { generateSecondView } from "./views/generateSecondView.js"
-import { manageSecondView } from "./views/switchFirstSecondView.js"
 
 
 
@@ -34,6 +37,8 @@ const generateModal = () => {
 }
 
 
+
+
 // Gère l'ensemble de la modale : affichage, apparition et disparition de la modale
 
 export const manageModal = (works) => {
@@ -41,27 +46,29 @@ export const manageModal = (works) => {
     const editTool = getTag("#portfolio .edit-tool")
 
     // Ecoute le bouton edition, au click sur celui-ci, lance la fonction qui gère la modale
-    editTool.addEventListener("click", () => {
+    editTool.addEventListener("click", async () => {
 
         // Vérifie si l'overlay existe déjà (si oui s'arrête ici, sinon...)
         if (getTag("#overlay-body")) return
 
-        // Appelle generateModal et récupère les éléments
+        // Appelle generateModal qui génère la modale et récupère les éléments
         const {overlayBody, modal, modalCloseBtn} = generateModal()
-       
-        // Passe les éléments récupérés à la fonction setupModalClose
-        setupModalClose(overlayBody, modal, modalCloseBtn)
 
-        // Appelle generateFirstView et récupère les éléments
+        // Appelle generateFirstView qui génère la première vue et récupère les éléments
         const {modalGalleryElements, addPhotoBtnModal, modalContainerFirstView} = generateFirstView(works, modal)
 
-        // Boucle sur chaque élément pour appeler removeItemFirstView
-        modalGalleryElements.forEach(({ i, imgGalleryParent, imgGallery}) => {
-            removeItemFirstView(i, imgGalleryParent, imgGallery.id)
-        })
+        const{iconBackArrow, modalContainerSecondView, inputFileBackground, inputFileWrap, inputFile, descriptionFile, selectCategory} = await generateSecondView(modal)
+
+        // Configure et gére les écouteurs en passant tous les éléments nécessaires à la fonction d'écouteurs en paramètres
+        setupEventListenersModal(modal, overlayBody, modalCloseBtn, modalGalleryElements, addPhotoBtnModal, modalContainerFirstView, modalContainerSecondView, iconBackArrow, inputFileBackground, inputFileWrap, inputFile, descriptionFile, selectCategory)
+        
+        // // Boucle sur chaque élément pour appeler removeItemFirstView
+        // modalGalleryElements.forEach(({ i, imgGalleryParent, imgGallery}) => {
+        //     removeItemFirstView(i, imgGalleryParent, imgGallery.id)
+        // })
 
         // Gère la seconde vue: récupère en paramètre la modale, le bouton, et la div contenant la première vue Affiche la second view au click sur le bouton et supprime la first view
-        manageSecondView(modal, addPhotoBtnModal, modalContainerFirstView)
+        // manageSecondView(modal, addPhotoBtnModal, modalContainerFirstView)
 
 
     })

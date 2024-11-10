@@ -56,8 +56,9 @@ export const generateSecondView = async (modal) => {
     const labelFile = createTag("div", "label-btn-photo")
     labelFile.innerText = "+ Ajouter photo"
     inputFileWrap.appendChild(labelFile)
-
-    const inputFile = createTag("input", null, "input-image", { type: "file", name: "input-image", accept: "image/png, image/jpg, image/jpeg", onchange:"getExtFile()" })
+    
+// onchange:"validateImgType()"
+    const inputFile = createTag("input", null, "input-image", { type: "file", name: "input-image", accept: "image/png, image/jpg, image/jpeg" })
     inputFileWrap.appendChild(inputFile)
 
     const descriptionFile = createTag("p", "desc-file")
@@ -129,6 +130,6 @@ export const generateSecondView = async (modal) => {
     modalContainerSecondView.appendChild(validateBtnModal)
 
 
-    return { modalContainerSecondView, iconBackArrow, inputFileBackground, inputFile, inputFileWrap }
+    return { modalContainerSecondView, iconBackArrow, inputFileBackground, inputFileWrap, inputFile, descriptionFile, selectCategory }
 
 }

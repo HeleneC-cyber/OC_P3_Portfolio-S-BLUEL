@@ -35,6 +35,9 @@ export function generateCategoryBtn(works) {
     }
 }
 
+
+
+
 // Filtre les catégories des figures par rapport au bouton ciblée (checked)
 export function filterCategoryFigure(works) {
     // Récupère les input des boutons-radio sous forme de tableau

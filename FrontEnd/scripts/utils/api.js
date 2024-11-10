@@ -25,7 +25,7 @@ export const loginUser = async (email, password) => {
     // Définit le couple identifiant à envoyer pour la requête
     const identifyingPair = { "email": email, "password": password }
 
-    // Définit la requête en utilisant la méthode fetch et en fournissant des options dans le deuxième paramètre (objet) de fetch : method headers body
+    // Définit la requête en utilisant la fonction fetch et en fournissant des options dans le deuxième paramètre (objet) de fetch : method headers body
     const response = await fetch("http://localhost:5678/api/users/login", {
         method: "POST",
         headers: {

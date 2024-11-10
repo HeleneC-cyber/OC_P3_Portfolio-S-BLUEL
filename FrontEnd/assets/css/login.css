@@ -56,7 +56,7 @@ input.validate {
     color: #1D6154;
 }
 
- input:-webkit-autofill,
+input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
