@@ -1,6 +1,6 @@
 import { getTag, createTag } from "../utils/helpers.js"
 import { generateFirstView } from "./views/generateFirstView.js"
-import { setupEventListenersModal } from "./utilsModal/setupEventListenersModal.js"
+import { setupEventListenersModal } from "./setupEventListenersModal.js"
 import { generateSecondView } from "./views/generateSecondView.js"
 // import { switchFirstSecondView } from "./views/switchFirstSecondView.js"
 // import { manageSecondView } from "./views/switchFirstSecondView.js"
@@ -57,10 +57,10 @@ export const manageModal = (works) => {
         // Appelle generateFirstView qui génère la première vue et récupère les éléments
         const {modalGalleryElements, addPhotoBtnModal, modalContainerFirstView} = generateFirstView(works, modal)
 
-        const{iconBackArrow, modalContainerSecondView, inputFileBackground, inputFileWrap, inputFile, descriptionFile, selectCategory} = await generateSecondView(modal)
+        const{iconBackArrow, modalContainerSecondView, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal} = await generateSecondView(modal)
 
         // Configure et gére les écouteurs en passant tous les éléments nécessaires à la fonction d'écouteurs en paramètres
-        setupEventListenersModal(modal, overlayBody, modalCloseBtn, modalGalleryElements, addPhotoBtnModal, modalContainerFirstView, modalContainerSecondView, iconBackArrow, inputFileBackground, inputFileWrap, inputFile, descriptionFile, selectCategory)
+        setupEventListenersModal(modal, overlayBody, modalCloseBtn, modalGalleryElements, addPhotoBtnModal, modalContainerFirstView, modalContainerSecondView, iconBackArrow, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal)
         
         // // Boucle sur chaque élément pour appeler removeItemFirstView
         // modalGalleryElements.forEach(({ i, imgGalleryParent, imgGallery}) => {

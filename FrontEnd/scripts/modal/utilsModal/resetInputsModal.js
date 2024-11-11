@@ -1,9 +1,10 @@
 import { getTag } from "../../utils/helpers.js"
+// import { displayErrorMessage } from "./validateInputTitle.js"
 
 
 
 // Réinitialise tous les inputs du formulaire de la modale
-export const resetInputsModal = (iconBackArrow, descriptionFile, inputFileBackground, inputFileWrap, previewContainer, inputFile, selectCategory) => {
+export const resetInputsModal = (iconBackArrow, descriptionFile, inputFileBackground, inputFileWrap, inputFile, selectCategory) => {
 
     // Au click sur la flèche "iconBackArrow"
     iconBackArrow.addEventListener("click", () => {
@@ -11,7 +12,6 @@ export const resetInputsModal = (iconBackArrow, descriptionFile, inputFileBackgr
 
         // Cible tous les inputs (type texte, et en principe file) du formulaire de la modale
         const inputs = document.querySelectorAll('.modal-form input')
-        console.log(inputs)
         // Réinitialise chaque input
         inputs.forEach(input => {
             input.value = ""
@@ -26,13 +26,13 @@ export const resetInputsModal = (iconBackArrow, descriptionFile, inputFileBackgr
 
         // Reset de l'affichage inputFile/PreviewImg : 
         // Si une image est previsualisée (affichée car valide) alors :
-        if (getTag("#preview-img").src) {
-
+        if (getTag(".preview-container").classList.contains("active")) {
+            console.log(getTag("#preview-img"))
             // Supprime l'attribut src
             getTag("#preview-img").removeAttribute("src")
 
-            // Enlève la classe active à la <div> contenant <img>
-            previewContainer.classList.remove("active")
+            // Enlève la classe active à la <div> contenant <img> ==> previewContainer repasse en display none
+            getTag(".preview-container").classList.remove("active")
 
             // Reset de l'inputFile explicite pour pallier les possibles restriction de sécurité des navigateurs (ex : utile pour chrome et opéra)
             inputFile.value = ""
@@ -41,18 +41,12 @@ export const resetInputsModal = (iconBackArrow, descriptionFile, inputFileBackgr
             inputFileBackground.appendChild(inputFileWrap)
         }
 
-        
+
         // Reset de la catégorie choisie
         selectCategory.selectedIndex = 0
 
-
-
-        // // Remplace l'input file pour vider la FileList
-        // const newInputFile = inputFile.cloneNode(false); // Clone le champ d'origine
-        // inputFile.parentNode.replaceChild(newInputFile, inputFile); // Remplace l'ancien input file
-
-     
-        console.log(inputFile.file)
+        // Reset le message dans la div .error-message (la div existe encore)
+        // displayErrorMessage("")
 
     })
 }

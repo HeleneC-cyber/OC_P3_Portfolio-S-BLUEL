@@ -1,6 +1,6 @@
 
 import { manageAuthentication } from "./authentication.js"
-import { testErrorInput } from "./validateInputs.js"
+import { testErrorInput } from "./testErrorInput.js"
 
 const inputEmail = document.getElementById("email")
 const inputPassword = document.getElementById("password")

@@ -112,6 +112,7 @@
 .background-validate {
     background-color: #1D6154;
     color: white;
+    border: none;
 }
 
 .background-unvalid {
@@ -218,7 +219,7 @@ margin-bottom: 21px;
 
 .form-group svg {
     position: absolute;
-    bottom: calc(25px - 6px);
+    top: calc(24px + 25px - 6px);
     right: 20px;
     }
 
@@ -252,4 +253,12 @@ margin-bottom: 21px;
 #preview-img {
     max-height: 193px;
     transform: translateY(-12px);
+}
+
+/* ____Pour le message d'erreur du form de la second view */
+.modal-form .error-message {
+    text-align: center;
+    color: #B1663C;
+    font-weight: 700;
+    margin-top: 15px;
 }

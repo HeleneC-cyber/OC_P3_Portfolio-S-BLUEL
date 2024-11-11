@@ -1,5 +1,5 @@
 import { loginUser } from "../utils/api.js"
-import { createTag } from "../utils/helpers.js"
+import { createTag, getTag } from "../utils/helpers.js"
 
 
 
@@ -7,7 +7,7 @@ import { createTag } from "../utils/helpers.js"
 // Gère l'authentification
 
 export const manageAuthentication = (inputId, inputPassword) => {
-    const form = document.querySelector("form")
+    const form = getTag("form")
 
     // Après la récupération du form, on écoute le form à l'envoie (submit)
     form.addEventListener("submit", (e) => {

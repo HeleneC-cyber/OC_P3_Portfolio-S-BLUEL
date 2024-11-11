@@ -57,7 +57,6 @@ export const generateSecondView = async (modal) => {
     labelFile.innerText = "+ Ajouter photo"
     inputFileWrap.appendChild(labelFile)
     
-// onchange:"validateImgType()"
     const inputFile = createTag("input", null, "input-image", { type: "file", name: "input-image", accept: "image/png, image/jpg, image/jpeg" })
     inputFileWrap.appendChild(inputFile)
 
@@ -74,7 +73,7 @@ export const generateSecondView = async (modal) => {
     labelTitle.innerText = "Titre"
     groupTitle.appendChild(labelTitle)
 
-    const inputTitle = createTag("input", null, "title", { type: "text", name: "input-title" })
+    const inputTitle = createTag("input", null, "title", { type: "text", name: "input-title", maxlength: "35" })
     groupTitle.appendChild(inputTitle)
 
 
@@ -121,15 +120,15 @@ export const generateSecondView = async (modal) => {
 
     // LIGNE
     const modalLine = createTag("div", "modal-line")
-    modalContainerSecondView.appendChild(modalLine)
+    modalForm.appendChild(modalLine)
 
 
     // BOUTON 
     const validateBtnModal = createTag("button", "btn-modal background-unvalid", null, { type: "submit" })
     validateBtnModal.innerText = "Valider"
-    modalContainerSecondView.appendChild(validateBtnModal)
+    modalForm.appendChild(validateBtnModal)
 
 
-    return { modalContainerSecondView, iconBackArrow, inputFileBackground, inputFileWrap, inputFile, descriptionFile, selectCategory }
+    return { modalContainerSecondView, iconBackArrow, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal }
 
 }
