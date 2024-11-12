@@ -3,6 +3,76 @@ import { getTag } from "../../utils/helpers.js"
 import { displayValidImg } from "./displayValidImg.js"
 
 
+
+
+export const validateForm = (inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal) => {
+
+    // Initialise la variable comme true et va permettre de vérifier chaque champ (true/false)
+    let isValidInputFile = false
+    let isValidInputTitle = false
+    let isValidInputSelect = false
+
+    // INPUTFILE
+    inputFile.addEventListener("change", () => {
+
+        // Affiche la preview du fichier image valide
+        displayValidImg(inputFileBackground, inputFileWrap, inputFile, descriptionFile)
+
+        // Vérifie si le fichier a une image valide: si preview-container contient la classe active = true, sinon false
+        isValidInputFile = getTag(".preview-container")?.classList.contains("active") || false
+        // Appelle la fonction checkAllValid
+        checkAllValid(isValidInputFile, isValidInputTitle, isValidInputSelect, validateBtnModal)
+
+    })
+
+    // INPUTTEXT
+    inputTitle.addEventListener("input", () => {
+
+        // Vérifie si le champ titre a au moins une lettre 
+        // (méthode trim() enlève les espaces et permet ici de ne pas compter un espace comme un caractère)
+        isValidInputTitle = inputTitle.value.trim().length >= 3
+        if (!isValidInputTitle) displayErrorInput("Le titre doit contenir au moins trois caractères.", inputTitle)
+        else removeDisplayErrorInput(inputTitle)
+        checkAllValid(isValidInputFile, isValidInputTitle, isValidInputSelect, validateBtnModal)
+
+    })
+
+    // SELECT
+    selectCategory.addEventListener("change", () => {
+
+        // Vérifie si une catégorie est sélectionnée
+        isValidInputSelect = selectCategory.selectedIndex !== 0
+        if (!isValidInputSelect) displayErrorInput("Veuillez choisir une catégorie.", selectCategory)
+        else removeDisplayErrorInput(selectCategory)
+        checkAllValid(isValidInputFile, isValidInputTitle, isValidInputSelect, validateBtnModal)
+
+    })
+
+}
+
+
+
+
+// Fonction qui vérifie si tous les champs sont valides et gère le bouton de validation
+const checkAllValid = (isValidInputFile, isValidInputTitle, isValidInputSelect,validateBtnModal) => {
+         // Si si tous les champs sont true (aucun isValid....===false) alors remplace la classe "bg-unvalid" par "bg-validate"
+         if (isValidInputFile === true && isValidInputTitle === true && isValidInputSelect === true) {
+            console.log(isValidInputFile, isValidInputTitle, isValidInputSelect)
+            validateBtnModal.classList.replace("background-unvalid","background-validate")
+    
+        } else { //Sinon, enlève la classe "background-valid" (si elle est existe)
+            if (validateBtnModal.classList.contains("background-validate")) validateBtnModal.classList.replace("background-validate","background-unvalid")
+        }
+    
+}
+
+
+
+
+
+
+
+
 // import { displayValidImg } from "./displayValidImg.js"
 // import { validateImgType } from "./validateImgType.js"
 
@@ -76,132 +146,6 @@ import { displayValidImg } from "./displayValidImg.js"
 //         divMessage.remove()
 //     }
 // }
-
-
-
-
-
-
-
-
-export const validateForm = (inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal) => {
-    // if (displayValidImg(inputFileBackground, inputFileWrap, inputFile, descriptionFile)=== true) {
-    // } 
-    // if(inputTitle.length > 1 &&)
-
-
-    // Initialise la variable comme true et va permettre de vérifier chaque champ (true/false)
-    let isValidInputFile = false
-    let isValidInputTitle = false
-    let isValidInputSelect = false
-
-
-
-    inputFile.addEventListener("change", () => {
-
-        // Affiche la preview du fichier image valide
-        displayValidImg(inputFileBackground, inputFileWrap, inputFile, descriptionFile)
-
-        // Vérifie si le fichier a une image valide
-        isValidInputFile = getTag(".preview-container")?.classList.contains("active") || false;
-        checkAllValid(isValidInputFile, isValidInputTitle, isValidInputSelect, validateBtnModal);
-        // if (!getTag(".preview-container") || !getTag(".preview-container").classList.contains("active")) {
-        //     // Affiche le message d'erreur après l'inputFile
-        //     // displayErrorMessage("Veuillez sélectionner une image.", inputFile)
-        //     isValidInputFile = false
-        //     console.log(isValidInputFile)
-        //     console.log(getTag(".preview-container"))
-        // } else {
-        //     isValidInputFile = true
-        // }
-        console.log(isValidInputFile)
-
-
-    })
-
-    inputTitle.addEventListener("input", () => {
-
-        // Vérifie si le champ titre a au moins une lettre 
-        // (méthode trim() enlève les espaces et permet ici de ne pas compter un espace comme un caractère)
-        isValidInputTitle = inputTitle.value.trim().length >= 3
-        if (!isValidInputTitle) displayErrorInput("Le titre doit contenir au moins trois caractères.", inputTitle)
-        else removeDisplayErrorInput(inputTitle)
-        checkAllValid(isValidInputFile, isValidInputTitle, isValidInputSelect, validateBtnModal)
-        // if (inputTitle.value.trim().length < 3) {
-        //     displayErrorInput("Le titre doit contenir au moins trois caractères.", inputTitle)
-        //     isValidInputTitle = false
-        //     console.log(isValidInputTitle)
-
-        // } else {
-        //     removeDisplayErrorInput(inputTitle)
-        //     isValidInputTitle = true
-            console.log(isValidInputTitle)
-
-        // }
-    })
-
-    
-    selectCategory.addEventListener("change", () => {
-
-        // Vérifie si une catégorie est sélectionnée
-        isValidInputSelect = selectCategory.selectedIndex !== 0;
-        if (!isValidInputSelect) displayErrorInput("Veuillez choisir une catégorie.", selectCategory);
-        else removeDisplayErrorInput(selectCategory);
-        checkAllValid(isValidInputFile, isValidInputTitle, isValidInputSelect, validateBtnModal);
-
-        // if (selectCategory.selectedIndex === 0) {
-        //     displayErrorInput("Veuillez choisir une catégorie.", selectCategory)
-        //     isValidInputSelect = false
-        //     console.log(isValidInputSelect)
-        // } else {
-        //     removeDisplayErrorInput(selectCategory)
-        //     isValidInputSelect = true
-        //     console.log(isValidInputSelect)
-
-        // }
-            console.log(isValidInputSelect)
-
-
-    })
-
-}
-
-
-export const checkAllValid = (isValidInputFile, isValidInputTitle, isValidInputSelect,validateBtnModal) => {
-         // Si aucun champ n'est false (isValid === true) alors applique la classe si tout est valide
-         if (isValidInputFile === true && isValidInputTitle === true && isValidInputSelect === true) {
-            console.log(isValidInputFile, isValidInputTitle, isValidInputSelect)
-            validateBtnModal.classList.replace("background-unvalid","background-validate")
-    
-        } else { //Sinon, enlève la classe "background-valid"
-            if (validateBtnModal.classList.contains("background-validate")) validateBtnModal.classList.replace("background-validate","background-unvalid")
-        }
-}
-
-
-
-
-export const manageSubmitForm = (validateBtnModal) => {
-    const form = getTag(".modal-form")
-    form.addEventListener("submit", (e) => {
-        e.preventDefault()
-
-        if (validateBtnModal.classList.contains("background-validate")) {
-            // Appeler la fonction API pour FETCH avec un formDATA
-            // Rediriger sur la page index.html
-            // Vérifier que le formulaire est vide en rouvrant la modale !
-            // SI ça fonctionne faire pareil mais sans rediriger ! Dois y avoir l'ajout dynamique sans devoir recharcher ! 
-        }
-
-
-
-
-
-    })
-}
-
-
-
 
 
 

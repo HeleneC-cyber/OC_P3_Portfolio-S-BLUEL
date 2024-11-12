@@ -10,8 +10,11 @@ export const removeItemFirstView = (i, imgParent, idImg) => {
 
     // Récupération de l'ensemble des svg (poubelle, chacun associé à une image)
     const allDeleteBtn = document.querySelectorAll("div.modal-img-gallery svg")
-    // Ecoute le svg sélectionné parmi tous les svg "poubelle", au click : 
+    // console.log(allDeleteBtn[i])
+
+    // Ecoute le svg sélectionné parmi tous les svg de suppression, au click : 
     allDeleteBtn[i].addEventListener("click", async () => {
+        console.log(allDeleteBtn[i])
         // Récupère le token de la sessionStorage
         const token = sessionStorage.getItem("token")
 

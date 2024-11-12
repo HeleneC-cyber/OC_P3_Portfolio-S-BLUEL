@@ -217,10 +217,14 @@ input:checked + .btn-filter {
 	margin-top: 50px;
 }
 
+
 .gallery img {
 	width: 100%;
-
+	/* ____Ajout pour définir la taille de l'image dans le portfolio quelque soit la taille d'origne____ */
+	height: 490px;
+	object-fit: cover;
 }
+
 #contact {
 	width: 50%;
 	margin: auto;

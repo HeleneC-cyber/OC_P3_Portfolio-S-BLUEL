@@ -52,6 +52,8 @@ export const displayValidImg = (inputFileBackground, inputFileWrap, inputFile, d
             // Supprime inputFileWrap (contenant svg, label, input, et p)
             inputFileWrap.remove()
 
+            
+
         }else{
             console.log("mauvais format...")
             // displayErrorMessage("L'image n'est pas valide.")

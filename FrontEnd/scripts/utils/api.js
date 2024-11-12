@@ -25,8 +25,8 @@ export const loginUser = async (email, password) => {
     // Définit le couple identifiant à envoyer pour la requête
     const identifyingPair = { "email": email, "password": password }
 
-    // Définit la requête en utilisant la fonction fetch et en fournissant des options dans le deuxième paramètre (objet) de fetch : method headers body
-    const response = await fetch("http://localhost:5678/api/users/login", {
+    // Définit et envoie la requête en utilisant la fonction fetch et en fournissant des options dans le deuxième paramètre (objet) de fetch : method headers body
+    const response = await fetch('http://localhost:5678/api/users/login', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -59,6 +59,42 @@ export const deleteImg = async (idImg, token) => {
     })
     return response
 }
+
+
+
+
+// Envoie une requête POST pour ajouter une image à l'API en lui fournissant en 2e paramètre de fetch des infos (via formData)
+export const addImg = async (inputFile, inputTitle, selectCategory) => {
+
+    // Crée un objet FormData
+    const formData = new FormData();
+
+    // Ajoute les données au formData :
+    formData.append("image", inputFile.files[0]) // image
+    formData.append("title", inputTitle.value) // titre
+    formData.append("category", selectCategory.selectedIndex) // catégorie
+
+    // Récupère le token de la sessionStorage
+    const token = sessionStorage.getItem("token")
+
+    // Envoie les données à l'API avec fetch
+    const response = await fetch('http://localhost:5678/api/works', {
+        method: "POST",
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+        body: formData
+    })
+
+    return response
+
+}
+
+        // //     'accept': 'application/json',
+        // //     'Content-Type': 'multipart/form-data',
+
+
+
 
 // Avec la gestion erreur try/catch/throw
 // export const deleteImage = async (idImg, token) => {

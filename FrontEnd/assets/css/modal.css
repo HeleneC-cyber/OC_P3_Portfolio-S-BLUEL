@@ -85,6 +85,8 @@
 
 .modal-gallery-wrap .modal-img-gallery img {
     height: 102px;
+    width: 76.42px;
+    object-fit: cover;
 }
 
 .modal-container .modal-line {

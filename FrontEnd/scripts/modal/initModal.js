@@ -55,12 +55,12 @@ export const manageModal = (works) => {
         const {overlayBody, modal, modalCloseBtn} = generateModal()
 
         // Appelle generateFirstView qui génère la première vue et récupère les éléments
-        const {modalGalleryElements, addPhotoBtnModal, modalContainerFirstView} = generateFirstView(works, modal)
+        const {modalGalleryElements, addPhotoBtnModal,modalGalleryWrap, modalContainerFirstView} = generateFirstView(works, modal)
 
-        const{iconBackArrow, modalContainerSecondView, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal} = await generateSecondView(modal)
+        const{iconBackArrow, modalContainerSecondView, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal} = await generateSecondView(modal)
 
         // Configure et gére les écouteurs en passant tous les éléments nécessaires à la fonction d'écouteurs en paramètres
-        setupEventListenersModal(modal, overlayBody, modalCloseBtn, modalGalleryElements, addPhotoBtnModal, modalContainerFirstView, modalContainerSecondView, iconBackArrow, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal)
+        setupEventListenersModal(modal, overlayBody, modalCloseBtn, modalGalleryElements, addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView, modalContainerSecondView, iconBackArrow, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal)
         
         // // Boucle sur chaque élément pour appeler removeItemFirstView
         // modalGalleryElements.forEach(({ i, imgGalleryParent, imgGallery}) => {

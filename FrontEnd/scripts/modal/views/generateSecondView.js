@@ -129,6 +129,6 @@ export const generateSecondView = async (modal) => {
     modalForm.appendChild(validateBtnModal)
 
 
-    return { modalContainerSecondView, iconBackArrow, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal }
+    return { modalContainerSecondView, iconBackArrow, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal }
 
 }

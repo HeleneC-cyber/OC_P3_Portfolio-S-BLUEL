@@ -1,10 +1,11 @@
 import { switchFirstSecondView } from "./views/switchFirstSecondView.js"
 import { setupModalClose } from "./utilsModal/setupModaleClose.js"
 import { removeItemFirstView } from "./utilsModal/removeItemFirstView.js"
-import { displayValidImg } from "./utilsModal/displayValidImg.js"
-import { resetInputsModal } from "./utilsModal/resetInputsModal.js"
-import { validateForm} from "./utilsModal/validateInputTitle.js"
-import { getTag } from "../utils/helpers.js"
+// import { displayValidImg } from "./utilsModal/displayValidImg.js"
+import { resetForm } from "./utilsModal/resetForm.js"
+import { validateForm } from "./utilsModal/validateForm.js"
+import { manageSubmitForm } from "./utilsModal/manageSubmitForm.js"
+// import { getTag } from "../utils/helpers.js"
 // import { manageForm } from "./utilsModal/validateInputTitle.js"
 // import { getTag } from "../utils/helpers.js"
 
@@ -14,28 +15,38 @@ import { getTag } from "../utils/helpers.js"
 
 
 
-export const setupEventListenersModal = (modal, overlayBody, modalCloseBtn, modalGalleryElements, addPhotoBtnModal, modalContainerFirstView, modalContainerSecondView, iconBackArrow, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal) => {
+export const setupEventListenersModal = (modal, overlayBody, modalCloseBtn, modalGalleryElements, addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView, modalContainerSecondView, iconBackArrow, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal) => {
 
     // Configure la fermeture de la modale à l'aide de plusieurs écouteurs(overlayBody et modalCloseBtn)
     setupModalClose(overlayBody, modal, modalCloseBtn)
 
-
+    
     // Boucle sur chaque élément du tableau modalGalleryElements pour les récupérer et les utiliser en paramètres de removeItemFirstView (qui supprime l'image dans la first view et dans la gallery du portfolio)
     modalGalleryElements.forEach(({ i, imgGalleryParent, imgGallery }) => {
         removeItemFirstView(i, imgGalleryParent, imgGallery.id)
     })
+    
 
     // Affiche en alternance première et deuxième vue à l'aide de la classe hidden (cachant l'une ou l'autre selon le bouton cliqué)
     switchFirstSecondView(modal, addPhotoBtnModal, modalContainerFirstView, modalContainerSecondView, iconBackArrow)
-
+    
     // // Affiche la preview du fichier image valide
     // const previewElement = displayValidImg(inputFileBackground, inputFileWrap, inputFile, descriptionFile)
-
     
+    
+    // Vérifie si tous les champs du formulaire sont valides, si oui le bouton "valider" change de style
     validateForm(inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal)
-
-    // Réinitialisation des inputs lorsque la deuxième vue n'est plus visible
-    resetInputsModal(iconBackArrow, descriptionFile, inputFileBackground, inputFileWrap, inputFile, selectCategory)
+    
+    
+    // Gère le formulaire à l'envoie (accessible, une fois le formulaire validé)
+    manageSubmitForm(modalGalleryElements, modalGalleryWrap ,inputFile, inputTitle, selectCategory, validateBtnModal, modalForm, inputFileBackground, inputFileWrap, descriptionFile)
+    
+    
+    // Au click sur le bouton "iconBackArrow"
+    iconBackArrow.addEventListener("click", () => {
+        // Réinitialisation du formulaire (message d'erreur et preview image compris)
+        resetForm(modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory)
+    })
 
 
     // const form = getTag(".modal-form")

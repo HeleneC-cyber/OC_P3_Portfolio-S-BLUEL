@@ -59,5 +59,5 @@ export const generateFirstView = (works, modal) => {
     modalContainerFirstView.appendChild(addPhotoBtnModal)
     
     
-    return {modalGalleryElements, addPhotoBtnModal, modalContainerFirstView}
+    return {modalGalleryElements, addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView}
 }
