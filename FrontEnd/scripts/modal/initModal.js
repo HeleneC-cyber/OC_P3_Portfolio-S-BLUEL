@@ -48,20 +48,28 @@ export const manageModal = (works) => {
     // Ecoute le bouton edition, au click sur celui-ci, lance la fonction qui gère la modale
     editTool.addEventListener("click", async () => {
 
+        
         // Vérifie si l'overlay existe déjà (si oui s'arrête ici, sinon...)
         if (getTag("#overlay-body")) return
-
+        
         // Appelle generateModal qui génère la modale et récupère les éléments
         const {overlayBody, modal, modalCloseBtn} = generateModal()
 
+        
+        // Initialiser un tableau global pour centraliser les images de la First View
+        const firstViewImages = []
+        
         // Appelle generateFirstView qui génère la première vue et récupère les éléments
-        const {modalGalleryElements, addPhotoBtnModal,modalGalleryWrap, modalContainerFirstView} = generateFirstView(works, modal)
+        const {modalGalleryElements, addPhotoBtnModal,modalGalleryWrap, modalContainerFirstView} = generateFirstView(works, modal, firstViewImages)
 
         const{iconBackArrow, modalContainerSecondView, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal} = await generateSecondView(modal)
 
         // Configure et gére les écouteurs en passant tous les éléments nécessaires à la fonction d'écouteurs en paramètres
-        setupEventListenersModal(modal, overlayBody, modalCloseBtn, modalGalleryElements, addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView, modalContainerSecondView, iconBackArrow, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal)
+        setupEventListenersModal(modal, overlayBody, modalCloseBtn, firstViewImages, modalGalleryElements, addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView, modalContainerSecondView, iconBackArrow, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal)
         
+        console.log(firstViewImages)
+
+
         // // Boucle sur chaque élément pour appeler removeItemFirstView
         // modalGalleryElements.forEach(({ i, imgGalleryParent, imgGallery}) => {
         //     removeItemFirstView(i, imgGalleryParent, imgGallery.id)

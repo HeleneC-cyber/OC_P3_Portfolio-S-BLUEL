@@ -77,10 +77,12 @@
     position: relative;
 }
 
-.modal-gallery-wrap .modal-img-gallery svg {
+.modal-gallery-wrap .modal-img-gallery>svg {
     position: absolute;
     top: 6px;
     left: calc(100% - 17px - 6px);
+    /* left: calc(100% - 12px); */
+    
 }
 
 .modal-gallery-wrap .modal-img-gallery img {
