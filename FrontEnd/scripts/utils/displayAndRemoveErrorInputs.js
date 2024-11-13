@@ -5,7 +5,7 @@ import { createTag } from "../utils/helpers.js"
 
 export const displayErrorInput = (message, input) => {
 
-    // Récupération de la div parent
+    // Récupération du noeud de la div parent
     let parentDiv = input.parentElement
     // Récupération de la div ayant la classe .error, dans une variable
     let divError = parentDiv.querySelector(".error")

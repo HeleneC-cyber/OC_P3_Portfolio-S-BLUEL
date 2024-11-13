@@ -2,7 +2,7 @@
 import { getWorks } from "./utils/api.js"
 import { generateGallery } from "./gallery.js"
 import { filterCategoryFigure, generateCategoryBtn } from "./gallery.filter.js"
-import { IsAuthenticated, logout } from "./auth.js"
+import { IsAuthenticated, logout } from "./utils/auth.js"
 import { generateEditMode } from "./editMode.js"
 import { manageModal } from "./modal/initModal.js"
 

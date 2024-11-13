@@ -9,7 +9,6 @@ export const IsAuthenticated = () => {
 
 
 
-
 // STILL LOGGED IN ?
 // Ecoute l'événement storage (=déclenché quand une maj est faite sur le local ou sessionStorage, détecte ce changement depuis tous les onglets ouverts sur un même site)
 
@@ -21,7 +20,6 @@ window.addEventListener("storage", (e) => {
         window.location.reload()
     }
 })
-
 
 
 

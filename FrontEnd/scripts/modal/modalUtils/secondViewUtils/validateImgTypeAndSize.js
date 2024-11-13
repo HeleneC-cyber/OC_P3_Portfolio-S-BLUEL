@@ -1,9 +1,5 @@
-// import { previewImgForm } from "./previewImgForm.js"
-
-
-
-
-export const validateImgType = (inputFile) => {
+// Pose les conditions pour déterminer si l'image est valide
+export const validateImgTypeAndSize = (inputFile) => {
     // inputFile.addEventListener("change", () => {
 
     // Récupère la valeur de l'attribut name de l'inputFile

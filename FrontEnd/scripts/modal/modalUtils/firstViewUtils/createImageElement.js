@@ -1,9 +1,10 @@
-import { createTag } from "../../utils/helpers.js";
+import { createTag } from "../../../utils/helpers.js";
 
 // utilisé pour générer la first view depuis le portfolio ET depuis ajout du formulaire validé
 
 // Créer le bloc contenant l'image de la first view (et le place dans le DOM)
 export const createImageElement = (work, modalGalleryWrap) => {
+
     // Création du bloc parent de l'image (et du svg)
     const imgParent = createTag("div", "modal-img-gallery")
     // Associe l’ID de l’image (en data-id au parent) pour faciliter la suppression
@@ -12,9 +13,6 @@ export const createImageElement = (work, modalGalleryWrap) => {
 
     // Création de l’élément image
     const imgElement = createTag("img", null, null, {src:`${work.imageUrl}`, alt:`${work.imageUrl}`});
-    // imgElement.src = work.imageUrl;  // Définir la source de l’image
-    // imgElement.alt = work.title;     // Définir un texte alternatif
-
     // Placement de l’image dans le conteneur
     imgParent.appendChild(imgElement)
 
@@ -30,8 +28,10 @@ export const createImageElement = (work, modalGalleryWrap) => {
     // Placement du svg de suppression dans le conteneur
     imgParent.appendChild(deleteBtn)
 
+
     // Placement et lie imgParent au DOM, dans le conteneur ".modal-gallery-wrap" de la First View
     modalGalleryWrap.appendChild(imgParent)
+
 
     // Retourne l'élément principal avec tous ses enfants
     return imgParent

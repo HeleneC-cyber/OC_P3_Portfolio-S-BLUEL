@@ -1,5 +1,5 @@
-import { deleteImg } from "../../utils/api.js"
-import { getTag } from "../../utils/helpers.js"
+import { deleteImg } from "../../../utils/api.js"
+import { getTag } from "../../../utils/helpers.js"
 
 
 
@@ -26,17 +26,32 @@ export const addImageToFirstViewTable = (firstViewImages, imgParent, idImg) => {
         // Si la suppression est réussie
         if (response.ok) {
             // Supprime le bloc parent de l'img (et du svg) dans la modale
-            imgParent.remove()
+            removeImageFromFirstView(imgParent)
 
-            // Supprime aussi l’élément correspondant dans la galerie du portfolio
-            const galleryItem = getTag(`.gallery figure[data-id="${idImg}"]`)
-            if (galleryItem) galleryItem.remove()
+            // Supprime l’élément correspondant dans la galerie du portfolio
+            removeImageFromGallery(idImg)
 
             // Retire l'image du tableau central
             removeImageFromFirstViewTable(firstViewImages, idImg)
         }
     })
 }
+
+
+
+// Supprime le bloc parent/image de la First View visuellement
+const removeImageFromFirstView = (imgParent) => {
+    imgParent.remove()
+}
+
+
+
+// Supprime l’élément correspondant dans la galerie du portfolio
+const removeImageFromGallery = (idImg) => {
+    const galleryItem = getTag(`.gallery figure[data-id="${idImg}"]`)
+    if (galleryItem) galleryItem.remove()
+}
+
 
 
 // Retire une image du tableau

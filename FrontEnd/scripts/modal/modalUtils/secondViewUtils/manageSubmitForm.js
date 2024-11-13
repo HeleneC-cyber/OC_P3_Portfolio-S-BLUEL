@@ -1,10 +1,8 @@
-import { addImg } from "../../utils/api.js"
-// import { createTag, getTag } from "../../utils/helpers.js"
+import { addImg } from "../../../utils/api.js"
 import { addNewWorkToFirstView } from "./addNewWorkToFirstView.js"
 import { addWorkToGallery } from "./addWorkToGallery.js"
-// import { createImageElement } from "./createImageElement.js"
-// import { removeItemFirstView } from "./removeItemFirstView.js"
 import { resetForm } from "./resetForm.js"
+
 
 
 export const manageSubmitForm = (firstViewImages, modalGalleryWrap, inputFile, inputTitle, selectCategory, validateBtnModal,modalForm, inputFileBackground, inputFileWrap, descriptionFile) => {

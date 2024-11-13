@@ -2,17 +2,10 @@ import { getTag, createTag } from "../utils/helpers.js"
 import { generateFirstView } from "./views/generateFirstView.js"
 import { setupEventListenersModal } from "./setupEventListenersModal.js"
 import { generateSecondView } from "./views/generateSecondView.js"
-// import { switchFirstSecondView } from "./views/switchFirstSecondView.js"
-// import { manageSecondView } from "./views/switchFirstSecondView.js"
-// import { previewImgForm } from "./utilsModal/previewImgForm.js"
-// import { removeItemFirstView } from "./utilsModal/removeItemFirstView.js"
-// import { setupModalClose } from "./utilsModal/setupModaleClose.js"
-// import { generateSecondView } from "./views/generateSecondView.js"
 
 
 
 // Génère la modale (l'élément globale)
-
 const generateModal = () => {
     // OVERLAY dans le DOM
     const body = getTag("body")
@@ -38,9 +31,7 @@ const generateModal = () => {
 
 
 
-
 // Gère l'ensemble de la modale : affichage, apparition et disparition de la modale
-
 export const manageModal = (works) => {
     
     const editTool = getTag("#portfolio .edit-tool")
@@ -60,24 +51,13 @@ export const manageModal = (works) => {
         const firstViewImages = []
         
         // Appelle generateFirstView qui génère la première vue et récupère les éléments
-        const {modalGalleryElements, addPhotoBtnModal,modalGalleryWrap, modalContainerFirstView} = generateFirstView(works, modal, firstViewImages)
+        const { addPhotoBtnModal,modalGalleryWrap, modalContainerFirstView} = generateFirstView(works, modal, firstViewImages)
 
         const{iconBackArrow, modalContainerSecondView, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal} = await generateSecondView(modal)
 
         // Configure et gére les écouteurs en passant tous les éléments nécessaires à la fonction d'écouteurs en paramètres
-        setupEventListenersModal(modal, overlayBody, modalCloseBtn, firstViewImages, modalGalleryElements, addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView, modalContainerSecondView, iconBackArrow, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal)
+        setupEventListenersModal(modal, overlayBody, modalCloseBtn, firstViewImages, addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView, modalContainerSecondView, iconBackArrow, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal)
         
-        console.log(firstViewImages)
-
-
-        // // Boucle sur chaque élément pour appeler removeItemFirstView
-        // modalGalleryElements.forEach(({ i, imgGalleryParent, imgGallery}) => {
-        //     removeItemFirstView(i, imgGalleryParent, imgGallery.id)
-        // })
-
-        // Gère la seconde vue: récupère en paramètre la modale, le bouton, et la div contenant la première vue Affiche la second view au click sur le bouton et supprime la first view
-        // manageSecondView(modal, addPhotoBtnModal, modalContainerFirstView)
-
 
     })
 
