@@ -9,7 +9,6 @@ export const displayValidImg = (inputFileBackground, inputFileWrap, inputFile, d
     let previewContainer = getTag("div.preview-container")
     let previewElement = getTag("#preview-img")
 
-
     // Si previewContainer et previewElement n'existent pas...
     if (!previewContainer && !previewElement) {
         // Crée un élément <img> pour afficher la prévisualisation et une div contenant l'élément

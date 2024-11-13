@@ -1,10 +1,21 @@
 import { generateGallery } from "./gallery.js"
 
+
+
+// REMARQUE : 
+// Les boutons de filtres apparissent dans l'ordre des catégories des images
+// Si la 1ere image est un "appartement" la 2e un "objet" et la 3e "hotel & restaurant"
+// Alors l'ordre des boutons catégories sera le même. 
+// Si l'ordre est vraiment important pour le client, le mieux serait de faire une nouvelle requête
+// auprès de l'API afin d'obtenir les 3 catégories dans l'ordre 1 objet, 2 appartement, 3 hotel & restaurants
+// sort() est aussi faisable pour générer les catégories dans l'ordre alphabétique par ex
+
+
 // Génère les boutons en fonction du nombre de catégorie
 export function generateCategoryBtn(works) {
     // Génère un nouveau tableau contenant uniquement les différents noms de catégories
     const listCategory = works.map(work => work.category.name)
-    const setListCategory = new Set(listCategory)
+    const setListCategory = new Set(listCategory) //Récupère une fois chaque catégorie, évite les doublons
     const arrayListCategory = Array.from(setListCategory)
 
     // Création et placement de la div contenant les boutons
@@ -34,7 +45,6 @@ export function generateCategoryBtn(works) {
         btnAll.innerHTML += btnCategoryFilter
     }
 }
-
 
 
 

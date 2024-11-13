@@ -1,5 +1,4 @@
 // Récupération des éléments de la gallerie depuis l'API : api/works
-
 export const getWorks = async () => {
     const works = await fetch('http://localhost:5678/api/works').then(works => works.json())
     return works
@@ -7,9 +6,7 @@ export const getWorks = async () => {
 
 
 
-
 // Récupération les catégories depuis l'API : api/categories
-
 export const getCategories = async () => {
     const categories = await fetch('http://localhost:5678/api/categories').then(categories => categories.json())
     return categories
@@ -17,9 +14,7 @@ export const getCategories = async () => {
 
 
 
-
 // Envoie la requête à l'API et récupère la réponse dans la variable data
-
 export const loginUser = async (email, password) => {
 
     // Définit le couple identifiant à envoyer pour la requête
@@ -39,14 +34,12 @@ export const loginUser = async (email, password) => {
     // Retourne les données
     return data
 
-
 }
 
 
 
 
 // Envoie une requête DELETE avec fetch en précisant id de l'image à supprimer ainsi que la clé pour vérifier la personne a bien l'authorisation de faire cette requête
-
 export const deleteImg = async (idImg, token) => {
 
     const response = await fetch(`http://localhost:5678/api/works/${idImg}`, {

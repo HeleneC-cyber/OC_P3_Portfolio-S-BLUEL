@@ -5,7 +5,7 @@ import { filterCategoryFigure, generateCategoryBtn } from "./gallery.filter.js"
 import { IsAuthenticated, logout } from "./utils/auth.js"
 import { generateEditMode } from "./editMode.js"
 import { manageModal } from "./modal/initModal.js"
-
+import { getTag } from "./utils/helpers.js"
 
 
 
@@ -19,24 +19,25 @@ async function main() {
     generateCategoryBtn(works)
     filterCategoryFigure(works)
 
+    // Ne recharge pas la page au click sur le bouton envoyer (Formulaire non fonctionnel)
+    getTag('#contact input[type="submit"]').addEventListener("click", (e) => {
+        e.preventDefault()
+    })
+
+    
 // Vérifie sur la personne est bien authentifiée, si oui...
     if (IsAuthenticated() === true) {
-        // ...alors génère le mode edition
+        // ... génère le mode edition
         generateEditMode()
 
         // ...permet d'accéder à la modale et ces fonctionnalités
         manageModal(works)
-
-
 
         // ...permet à l'utilisateur de se déconnecter
         logout()
 
     }
     // Sinon (si pas de token), alors il ne se passe rien, affichage classique de la page index.html
-
 }
 
 main()
-
-

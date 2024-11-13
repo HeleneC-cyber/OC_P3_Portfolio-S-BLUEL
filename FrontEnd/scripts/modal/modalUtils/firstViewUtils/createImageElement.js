@@ -1,6 +1,9 @@
 import { createTag } from "../../../utils/helpers.js";
 
-// utilisé pour générer la first view depuis le portfolio ET depuis ajout du formulaire validé
+
+// Remarque fonction utiliser pour générer la first view depuis le portfolio ET depuis ajout du formulaire validé
+
+
 
 // Créer le bloc contenant l'image de la first view (et le place dans le DOM)
 export const createImageElement = (work, modalGalleryWrap) => {
@@ -18,7 +21,7 @@ export const createImageElement = (work, modalGalleryWrap) => {
 
 
     // Création l'icône de suppression (svg)
-    const deleteBtn = createTag("svg")
+    const deleteBtn = createTag("div", "svg")
     deleteBtn.innerHTML = `
         <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="17" height="17" rx="2" fill="black"/>

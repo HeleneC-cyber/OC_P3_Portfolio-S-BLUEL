@@ -17,16 +17,12 @@ export const manageSubmitForm = (firstViewImages, modalGalleryWrap, inputFile, i
             
             //   Si le statut de la réponse est ok alors...
             if (response.ok) {
-                console.log("Formulaire envoyé avec succès !")
-
+                
                 // Récupère les données de l'image ajoutée à partir de la réponse de l'API
                 const newWork = await response.json()
 
                 // Ajoute la nouvelle image dans la galerie du portfolio
                 addWorkToGallery(newWork)
-
-                // Ajoute la nouvelle image dans la first view
-                // addWorkToFirstView(modalGalleryWrap, newWork)
 
                 // Gère l'ajout d'une nouvelle image dans la première vue (ajout et suppresion newWork)
                 addNewWorkToFirstView(firstViewImages, newWork, modalGalleryWrap)
@@ -34,11 +30,7 @@ export const manageSubmitForm = (firstViewImages, modalGalleryWrap, inputFile, i
                 // Réinitialisation du formulaire (de la seconde view)
                 resetForm(modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile)
 
-            } else {
-                console.error(`Erreur ${response.status} : Échec de l'envoi du formulaire.`)
-            }
-
-
+            } 
         }
     })
 }

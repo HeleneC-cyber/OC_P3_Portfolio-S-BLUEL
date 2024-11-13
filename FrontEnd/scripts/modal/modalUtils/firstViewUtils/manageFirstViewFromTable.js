@@ -3,7 +3,7 @@ import { getTag } from "../../../utils/helpers.js"
 
 
 
-// Fonction pour ajouter une image au tableau central
+// Fonction pour ajouter une image au tableau central permettant de gérer la suppression d'image
 export const addImageToFirstViewTable = (firstViewImages, imgParent, idImg) => {
     
     // Créer l’objet représentant l’image

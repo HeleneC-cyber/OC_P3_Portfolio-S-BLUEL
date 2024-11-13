@@ -2,7 +2,6 @@ import { createTag } from "../utils/helpers.js"
 
 
 // Affiche et crée dynamiquement le message d'erreur de l'input dans une div
-
 export const displayErrorInput = (message, input) => {
 
     // Récupération du noeud de la div parent
@@ -14,14 +13,12 @@ export const displayErrorInput = (message, input) => {
     if (!divError) {
         // ... alors on crée l'élément avec la classe .error, on le position dans le DOM et on ajoute un texte (message d'erreur) dans l'élément
         divError = createTag("div", "error")
-        // divError.classList.add("error")
         parentDiv.appendChild(divError)
     }
 
     // La varible existe (a été récupérée ou vient être créée) 
     // Ajout d'un contenu text à la div 
     divError.innerText = message
-    // `${input.id} non valide`
 
 }
 

@@ -2,7 +2,6 @@ import { displayErrorInput, removeDisplayErrorInput } from "../utils/displayAndR
 
 
 
-
 // @param input = élément input pour lequel on veut afficher le message d'erreur
 // @param regex = Expression régulière choisie
 

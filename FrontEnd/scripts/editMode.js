@@ -2,9 +2,7 @@ import { createTag, getTag } from "./utils/helpers.js"
 
 
 
-
 // Génère le mode édition
-
 export function generateEditMode() {
 
     // Création et placement l'élément logout (remplaçant élément login)
@@ -13,7 +11,6 @@ export function generateEditMode() {
     const navLogoutElement = createTag("a", null, null, {href: "index.html"})
     parentElement.replaceChild(navLogoutElement, navLoginElement)
     navLogoutElement.innerText = "logout"
-
 
     
     // Création de la barre d'édition
@@ -30,7 +27,6 @@ export function generateEditMode() {
     const siblingEditBar = getTag('.container')
     const parentEditBar = siblingEditBar.parentNode
     parentEditBar.insertBefore(editBar, siblingEditBar)
-
 
 
     // Création du bouton modifier pour la gallerie
@@ -54,10 +50,10 @@ export function generateEditMode() {
     parentEditTool.appendChild(editTool)
 
 
-
     // Supprime les boutons de filtre en mode édition
     const getBtnContainer = getTag(".btn-container")
     parentSection.removeChild(getBtnContainer)
+
 
     return editTool
 }

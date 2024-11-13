@@ -3,7 +3,6 @@ import { createTag, getTag } from "../utils/helpers.js"
 
 
 
-
 // Gère l'authentification
 
 export const manageAuthentication = (inputId, inputPassword) => {
@@ -24,7 +23,6 @@ export const manageAuthentication = (inputId, inputPassword) => {
     })
 
 }
-
 
 
 

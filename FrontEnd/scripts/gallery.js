@@ -1,5 +1,3 @@
-// Récupération des éléments de la gallerie depuis l'API : api/works
-// export const works = await fetch('http://localhost:5678/api/works').then(works => works.json())
 
 // Génère dynamiquement les éléments de la div gallery
 export function generateGallery(works) {

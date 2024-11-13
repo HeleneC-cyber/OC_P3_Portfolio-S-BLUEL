@@ -52,7 +52,6 @@ export const generateSecondView = async (modal) => {
     inputFileWrap.innerHTML += iconInputFile
 
     //LABEL, INPUT FICHIER ET DESCRIPTION
-
     const labelFile = createTag("div", "label-btn-photo")
     labelFile.innerText = "+ Ajouter photo"
     inputFileWrap.appendChild(labelFile)
@@ -117,18 +116,15 @@ export const generateSecondView = async (modal) => {
 
     }
 
-
     // LIGNE
     const modalLine = createTag("div", "modal-line")
     modalForm.appendChild(modalLine)
-
 
     // BOUTON 
     const validateBtnModal = createTag("button", "btn-modal background-unvalid", null, { type: "submit" })
     validateBtnModal.innerText = "Valider"
     modalForm.appendChild(validateBtnModal)
-
+    
 
     return { modalContainerSecondView, iconBackArrow, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal }
-
 }

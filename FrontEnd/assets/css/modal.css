@@ -77,12 +77,12 @@
     position: relative;
 }
 
-.modal-gallery-wrap .modal-img-gallery>svg {
+.modal-gallery-wrap .modal-img-gallery .svg {
     position: absolute;
     top: 6px;
+    /* place l'image tout à droite - largeur du svg - marge de 6 px*/
     left: calc(100% - 17px - 6px);
-    /* left: calc(100% - 12px); */
-    
+    cursor: pointer;    
 }
 
 .modal-gallery-wrap .modal-img-gallery img {

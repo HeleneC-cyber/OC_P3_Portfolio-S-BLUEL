@@ -1,5 +1,4 @@
 // Créer une balise html avec les attributs de notre choix (ou sans) en définissant les éléments en paramètres
-
 export const createTag = (tagName, className = null, idName = null, attributes = {}) => {
     // Création de l'élément (choisir la balise)
     const tag = document.createElement(tagName)
@@ -29,9 +28,7 @@ export const createTag = (tagName, className = null, idName = null, attributes =
 
 
 
-
 // Récupère un élément (le premier du document) ayant les sélecteurs définis en paramètres (selecteurs, classes, id...)
-
 export const getTag = (selectors) => {
     // const body = document.querySelector('body')
     const tag = document.querySelector(selectors)
