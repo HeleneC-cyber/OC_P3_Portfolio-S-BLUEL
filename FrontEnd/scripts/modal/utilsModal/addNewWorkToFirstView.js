@@ -1,5 +1,6 @@
 import { addImageToFirstViewTable } from "./removeItemFirstViewFromTable.js"
 import { createImageElement } from "./createImageElement.js"
+import { addImageToTable } from "./manageFirstView.js"
 
 
 
@@ -17,11 +18,14 @@ export const addNewWorkToFirstView = (firstViewImages, newWork, modalGalleryWrap
     //     removeItemFirstView(newIndex, imgGalleryParent, imgGallery.id)
 
 
+
+
+
     // Crée le bloc image de la first view à partir du newWork, donné par le formulaire d'ajout
     const imgParent = createImageElement(newWork, modalGalleryWrap)
 
-    // Ajoute ce nouvel élément au tableau
-    addImageToFirstViewTable(firstViewImages, imgParent, newWork.id)
-   
-
+    // // Ajoute ce nouvel élément au tableau
+    // addImageToFirstViewTable(firstViewImages, imgParent, newWork.id)
+    // OU
+    addImageToTable(firstViewImages, imgParent, idImg)
 }

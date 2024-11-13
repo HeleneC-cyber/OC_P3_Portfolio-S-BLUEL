@@ -1,13 +1,16 @@
-import { addImg } from "../../utils/api.js"
+// import { addImg } from "../../utils/api.js"
 // import { createTag, getTag } from "../../utils/helpers.js"
-import { addNewWorkToFirstView } from "./addNewWorkToFirstView.js"
+// import { addNewWorkToFirstView } from "./addNewWorkToFirstView.js"
+import { addImgFromApi } from "../../utils/api.js"
 import { addWorkToGallery } from "./addWorkToGallery.js"
+import { createImageElement } from "./createImageElement.js"
+import { addImageToTable, setupDeleteImg } from "./manageFirstView.js"
 // import { createImageElement } from "./createImageElement.js"
 // import { removeItemFirstView } from "./removeItemFirstView.js"
 import { resetForm } from "./resetForm.js"
 
 
-export const manageSubmitForm = (firstViewImages, modalGalleryWrap, inputFile, inputTitle, selectCategory, validateBtnModal,modalForm, inputFileBackground, inputFileWrap, descriptionFile) => {
+export const manageSubmitForm = (firstViewImages, modalGalleryWrap, inputFile, inputTitle, selectCategory, validateBtnModal, modalForm, inputFileBackground, inputFileWrap, descriptionFile) => {
 
     modalForm.addEventListener("submit", async (e) => {
         e.preventDefault()
@@ -15,8 +18,8 @@ export const manageSubmitForm = (firstViewImages, modalGalleryWrap, inputFile, i
         if (validateBtnModal.classList.contains("background-validate")) {
 
             // Envoie une requête POST pour ajouter une image à l'API et récupère la réponse
-            const response = await addImg(inputFile, inputTitle, selectCategory)
-            
+            const response = await addImgFromApi(inputFile, inputTitle, selectCategory)
+
             //   Si le statut de la réponse est ok alors...
             if (response.ok) {
                 console.log("Formulaire envoyé avec succès !")
@@ -27,11 +30,18 @@ export const manageSubmitForm = (firstViewImages, modalGalleryWrap, inputFile, i
                 // Ajoute la nouvelle image dans la galerie du portfolio
                 addWorkToGallery(newWork)
 
+                // Crée le bloc image de la first view à partir du newWork, donné par le formulaire d'ajout
+                const imgParent = createImageElement(newWork, modalGalleryWrap)
+
+                // Ajoute ce nouvel élément au tableau
+                addImageToTable(firstViewImages, imgParent, newWork.id)
+
+                setupDeleteImg(firstViewImages)
                 // Ajoute la nouvelle image dans la first view
                 // addWorkToFirstView(modalGalleryWrap, newWork)
 
                 // Gère l'ajout d'une nouvelle image dans la première vue (ajout et suppresion newWork)
-                addNewWorkToFirstView(firstViewImages, newWork, modalGalleryWrap)
+                // addNewWorkToFirstView(firstViewImages, newWork, modalGalleryWrap)
 
                 // Réinitialisation du formulaire (de la seconde view)
                 resetForm(modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile)

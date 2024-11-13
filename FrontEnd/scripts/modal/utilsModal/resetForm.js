@@ -8,8 +8,8 @@ export const resetForm = (modalForm, inputFileBackground, inputFileWrap, inputFi
 
     // Restaure les valeurs par défaut des éléments du formulaire (inputs titre et catégorie)
     modalForm.reset()
-    // removeDisplayErrorInput(inputTitle)
-    // removeDisplayErrorInput(selectCategory)
+    removeDisplayErrorInput(inputTitle)
+    removeDisplayErrorInput(selectCategory)
 
     // Reset la couleur de la description de l'image si le fichier n'était pas valide
     if (getTag(".flash-error")) {

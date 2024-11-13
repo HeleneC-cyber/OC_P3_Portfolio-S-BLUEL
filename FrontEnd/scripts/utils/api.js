@@ -47,8 +47,11 @@ export const loginUser = async (email, password) => {
 
 // Envoie une requête DELETE avec fetch en précisant id de l'image à supprimer ainsi que la clé pour vérifier la personne a bien l'authorisation de faire cette requête
 
-export const deleteImg = async (idImg, token) => {
+export const deleteImgFromApi = async (idImg) => {
+    // Récupère le token de la sessionStorage
+    const token = sessionStorage.getItem("token")
 
+    // Envoie l'id de l'image à supprimer à l'API avec fetch
     const response = await fetch(`http://localhost:5678/api/works/${idImg}`, {
         method: "DELETE",
         headers: {
@@ -64,7 +67,7 @@ export const deleteImg = async (idImg, token) => {
 
 
 // Envoie une requête POST pour ajouter une image à l'API en lui fournissant en 2e paramètre de fetch des infos (via formData)
-export const addImg = async (inputFile, inputTitle, selectCategory) => {
+export const addImgFromApi = async (inputFile, inputTitle, selectCategory) => {
 
     // Crée un objet FormData
     const formData = new FormData();

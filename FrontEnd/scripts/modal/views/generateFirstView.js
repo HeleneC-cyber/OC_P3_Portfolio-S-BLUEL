@@ -1,6 +1,7 @@
 import { createTag } from "../../utils/helpers.js"
 import { createImageElement } from "../utilsModal/createImageElement.js"
-import { addImageToFirstViewTable } from "../utilsModal/removeItemFirstViewFromTable.js"
+import { addImageToTable } from "../utilsModal/manageFirstView.js"
+// import { addImageToFirstViewTable } from "../utilsModal/removeItemFirstViewFromTable.js"
 
 
 
@@ -28,7 +29,7 @@ export const generateFirstView = (works, modal, firstViewImages) => {
     // Récupère les éléments de works et les places dans "modalGalleryWrap"
     for (let i = 0; i < works.length; i++) {
         // Récupère à chaque passage de la boucle un item img de la galerie de l'api
-        let work= works[i]
+        let work = works[i]
 
         // // Création et placement du parent de la div parent contenant img de l'api et un svg
         // const imgGalleryParent = createTag("div", "modal-img-gallery")
@@ -50,8 +51,8 @@ export const generateFirstView = (works, modal, firstViewImages) => {
         
         const imgParent = createImageElement(work, modalGalleryWrap)
         // console.log(imgParent)
-        addImageToFirstViewTable(firstViewImages,imgParent, work.id)
-        
+        addImageToTable(firstViewImages,imgParent, work.id)
+      
         // return imgParent
     }
     
@@ -66,6 +67,6 @@ export const generateFirstView = (works, modal, firstViewImages) => {
     modalContainerFirstView.appendChild(addPhotoBtnModal)
     
     
-    return { addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView}
+    return { addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView }
     // modalGalleryElements,
 }

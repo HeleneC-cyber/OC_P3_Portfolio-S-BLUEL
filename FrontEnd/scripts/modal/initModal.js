@@ -67,7 +67,6 @@ export const manageModal = (works) => {
         // Configure et gére les écouteurs en passant tous les éléments nécessaires à la fonction d'écouteurs en paramètres
         setupEventListenersModal(modal, overlayBody, modalCloseBtn, firstViewImages, modalGalleryElements, addPhotoBtnModal, modalGalleryWrap, modalContainerFirstView, modalContainerSecondView, iconBackArrow, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal)
         
-        console.log(firstViewImages)
 
 
         // // Boucle sur chaque élément pour appeler removeItemFirstView

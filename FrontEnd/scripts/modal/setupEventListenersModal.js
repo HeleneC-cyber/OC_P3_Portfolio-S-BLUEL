@@ -5,6 +5,7 @@ import { setupModalClose } from "./utilsModal/setupModaleClose.js"
 import { resetForm } from "./utilsModal/resetForm.js"
 import { validateForm } from "./utilsModal/validateForm.js"
 import { manageSubmitForm } from "./utilsModal/manageSubmitForm.js"
+import { setupDeleteImg } from "./utilsModal/manageFirstView.js"
 // import { getTag } from "../utils/helpers.js"
 // import { manageForm } from "./utilsModal/validateInputTitle.js"
 // import { getTag } from "../utils/helpers.js"
@@ -41,6 +42,8 @@ export const setupEventListenersModal = (modal, overlayBody, modalCloseBtn,first
     // Gère le formulaire à l'envoie (accessible, une fois le formulaire validé)
     manageSubmitForm(firstViewImages, modalGalleryWrap, inputFile, inputTitle, selectCategory, validateBtnModal, modalForm, inputFileBackground, inputFileWrap, descriptionFile)
     
+
+    setupDeleteImg(firstViewImages)
     
     // Au click sur le bouton "iconBackArrow"
     iconBackArrow.addEventListener("click", () => {
