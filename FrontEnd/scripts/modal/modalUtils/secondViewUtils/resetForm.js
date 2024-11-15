@@ -3,7 +3,7 @@ import { getTag } from "../../../utils/helpers.js"
 
 
 // Réinitialise tous les inputs du formulaire de la modale
-export const resetForm = (modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory) => {
+export const resetForm = (modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile) => {
 
     // Restaure les valeurs par défaut des éléments du formulaire (inputs titre et catégorie)
     modalForm.reset()

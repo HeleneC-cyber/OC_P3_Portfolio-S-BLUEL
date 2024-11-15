@@ -51,7 +51,7 @@ export const manageModal = (works) => {
         const firstViewImages = []
         
         // Appelle generateFirstView qui génère la première vue et récupère les éléments
-        const { addPhotoBtnModal,modalGalleryWrap, modalContainerFirstView} = generateFirstView(works, modal, firstViewImages)
+        const { addPhotoBtnModal,modalGalleryWrap, modalContainerFirstView } = generateFirstView(works, modal, firstViewImages)
 
         const{iconBackArrow, modalContainerSecondView, modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory, validateBtnModal} = await generateSecondView(modal)
 

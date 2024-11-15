@@ -28,7 +28,7 @@ export const setupEventListenersModal = (modal, overlayBody, modalCloseBtn,first
     // Au click sur le bouton "iconBackArrow"
     iconBackArrow.addEventListener("click", () => {
         // Réinitialisation du formulaire (message d'erreur et preview image compris)
-        resetForm(modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile, inputTitle, selectCategory)
+        resetForm(modalForm, inputFileBackground, inputFileWrap, inputFile, descriptionFile)
             // Supprime les messages d'erreurs des inputs seulement si la div contenant le message existe
         if(document.querySelectorAll(".form-group .error")) {
             removeDisplayErrorInput(inputTitle)
