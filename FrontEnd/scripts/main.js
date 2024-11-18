@@ -1,13 +1,10 @@
-// import { works, generateGallery } from "./gallery.js"
 import { getWorks } from "./utils/api.js"
 import { generateGallery } from "./gallery.js"
 import { filterCategoryFigure, generateCategoryBtn } from "./gallery.filter.js"
+import { getTag } from "./utils/helpers.js"
 import { IsAuthenticated, logout } from "./utils/auth.js"
 import { generateEditMode } from "./editMode.js"
 import { manageModal } from "./modal/initModal.js"
-import { getTag } from "./utils/helpers.js"
-
-
 
 async function main() {
     
@@ -29,10 +26,8 @@ async function main() {
     if (IsAuthenticated() === true) {
         // ... génère le mode edition
         generateEditMode()
-
         // ...permet d'accéder à la modale et ces fonctionnalités
         manageModal(works)
-
         // ...permet à l'utilisateur de se déconnecter
         logout()
 

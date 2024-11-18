@@ -14,7 +14,7 @@ export const getCategories = async () => {
 
 
 
-// Envoie la requête à l'API et récupère la réponse dans la variable data
+// Envoi la requête à l'API et récupère la réponse dans la variable data
 export const loginUser = async (email, password) => {
 
     // Définit le couple identifiant à envoyer pour la requête
@@ -39,7 +39,7 @@ export const loginUser = async (email, password) => {
 
 
 
-// Envoie une requête DELETE avec fetch en précisant id de l'image à supprimer ainsi que la clé pour vérifier la personne a bien l'authorisation de faire cette requête
+// Envoi une requête DELETE avec fetch en précisant id de l'image à supprimer ainsi que la clé pour vérifier la personne a bien l'authorisation de faire cette requête
 export const deleteImg = async (idImg, token) => {
 
     const response = await fetch(`http://localhost:5678/api/works/${idImg}`, {
@@ -56,7 +56,7 @@ export const deleteImg = async (idImg, token) => {
 
 
 
-// Envoie une requête POST pour ajouter une image à l'API en lui fournissant en 2e paramètre de fetch des infos (via formData)
+// Envoi une requête POST pour ajouter une image à l'API en lui fournissant en 2e paramètre de fetch des infos (via formData)
 export const addImg = async (inputFile, inputTitle, selectCategory) => {
 
     // Crée un objet FormData
@@ -82,27 +82,3 @@ export const addImg = async (inputFile, inputTitle, selectCategory) => {
     return response
 
 }
-
-        // //     'accept': 'application/json',
-        // //     'Content-Type': 'multipart/form-data',
-
-
-
-
-// Avec la gestion erreur try/catch/throw
-// export const deleteImage = async (idImg, token) => {
-//     try {
-//         const response = await fetch(`http://localhost:5678/api/works/${idImg}`, {
-//             method: "DELETE",
-//             headers: {
-//                 'accept': '*/*',
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `Bearer ${token}`,
-//             },
-//         });
-//         return response;
-//     } catch (error) {
-//         console.error("Erreur lors de la suppression de l'image :", error);
-//         throw error;
-//     }
-// } 

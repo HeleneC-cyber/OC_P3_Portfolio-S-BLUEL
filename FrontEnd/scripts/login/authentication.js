@@ -4,7 +4,6 @@ import { createTag, getTag } from "../utils/helpers.js"
 
 
 // Gère l'authentification
-
 export const manageAuthentication = (inputId, inputPassword) => {
     const form = getTag("form")
 
@@ -27,7 +26,6 @@ export const manageAuthentication = (inputId, inputPassword) => {
 
 
 // Lance l'authentification : envoie la requête POST avec les valeurs des inputs et redige vers la page index.html ou affiche un message d'erreur
-
 const authentication = async (inputId, inputPassword) => {
     // Récupère les valeurs des inputs dans des variables
     let email = inputId.value
@@ -48,16 +46,13 @@ const authentication = async (inputId, inputPassword) => {
         sessionStorage.setItem("token", token)
         // On redirige vers index.html
         document.location.href = "./index.html"
-        
     }
-
 }
 
 
 
 
 // Affiche le message d'erreur pour la requête POST et le positionne dans le DOM
-
 const displayResponseError = () => {
     const form = document.querySelector("form")
 
