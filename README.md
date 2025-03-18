@@ -34,7 +34,7 @@ Base du code visible sur la branche Starter-code ou disponible [ICI](https://git
 
 ## 📂 Structure
 
-📁 OC_P3_Portfolio-S-BLUEL/ 
+📁 OC_P3_Portfolio-S-BLUEL/ <br> 
 │── 📁 Backend/<br> 
 │── 📁 Frontend/<br> 
   │── 📁 assets/ <br>
