@@ -34,7 +34,14 @@ Base du code visible sur la branche Starter-code ou disponible [ICI](https://git
 
 ## 📂 Structure
 
-📁 OC_P3_Portfolio-S-BLUEL/ │── 📁 Frontend/ │── 📁 assets/ │── 📁 scripts/ │── index.html │── login.html │── README.md
+📁 OC_P3_Portfolio-S-BLUEL/ 
+│── 📁 Backend/<br> 
+│── 📁 Frontend/<br> 
+  │── 📁 assets/ <br>
+  │── 📁 scripts/<br> 
+  │── index.html <br>
+  │── login.html <br>
+│── README.md
 <br><br>
 
 ## 🚀 Installation
